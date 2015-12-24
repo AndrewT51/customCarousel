@@ -1,0 +1,48 @@
+#mainItem {
+  height: 80vh;
+  width: 50vw;
+  background-color: beige;
+  display: inline-flex;
+  margin: 0;
+}
+.next, .previous {
+  height: 80vh;
+  width: 10vw;
+  background-color: black;
+  display: inline-block;
+  margin: 0;
+}
+
+h2, p {
+  display: inherit;
+}
+
+.picArray {
+  display: flex;
+  background-color: darkgrey;
+  width: 70vw;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.picArray img {
+  width: 27%;
+  padding:3px;
+}
+#picHolder {
+  width:40vw;
+  height: 35vh;
+  margin: 5px auto;
+  border: black 1px solid;
+
+}
+
+.focused {
+  border: lightblue 3px solid;
+  
+}
+#picHolder img {
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
