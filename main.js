@@ -1,92 +1,57 @@
 $(document).ready(init);
 var focusedItemDetails;
-
-  var objArray = [{
-    url:"pics/1.jpg",
-    blurb: "",
-    name: "",
-    focus: true,
-    id: 0
-  },
-  {
-    url:"pics/2.jpg",
-    blurb: "",
-    name: "",
-    focus: false,
-    id: 1
-  },
-  {
-    url:"pics/3.jpg",
-    name: "",
-    focus: false,
-    id: 2
-  },
-  {
-    url:"pics/4.jpg",
-    name: "",
-    focus: false,
-    id: 3
-  },
-    {
-    url:"pics/5.jpg",
-    name: "",
-    focus: false,
-    id: 4
-  }
-
-  ];
+var slider = -15;
 
 function init(){
   displayArray();
   displayMainFocus();
   navigationControl();
-  
 }
-
-
 
 function displayArray(){
   objArray.forEach(function(obj){
-    $(".picArray").append($("<img src='"+ obj.url+"'>"))
+    $(".picArray").append($("<img src='"+ obj.url+"' class='unfocused'>"))
     if(obj.focus){
       focusedItemDetails = obj; 
-      $("img[src$='"+obj.url+"']").addClass('focused');
+      $("img[src$='"+obj.url+"']").addClass('focused').removeClass('unfocused');
     }
   })
-  // for(itemNumber = 0; itemNumber <=4; itemNumber++){
-  //   $(".picArray").append($("<img src='"+ objArray[itemNumber].url+"'>"))
-  // }
 }
 
-
 function displayMainFocus(){
-  $("#picHolder").append("<img src='"+ focusedItemDetails.url + "'>")
+  $("#picHolder").append("<img src='"+ focusedItemDetails.url + "'>");
+  $("#textContainer p").append(focusedItemDetails.blurb)
 }
 
 function navigationControl(){
   $(".next").on("click",function(){
-    $("img[src$='"+focusedItemDetails.url+"']").removeClass('focused');
+    slider -= 30;
+
+    $("img[src$='"+focusedItemDetails.url+"']").removeClass('focused').addClass('unfocused');
+    $(".picArray img").css("left",slider+"%")
+
 
     if(focusedItemDetails.id + 1 < objArray.length){
       focusedItemDetails.focus = false;
       focusedItemDetails = objArray[focusedItemDetails.id + 1]
       focusedItemDetails.focus = true;
     }else{
-      console.log(focusedItemDetails)
       focusedItemDetails.focus = false;
       focusedItemDetails = objArray[0]
       focusedItemDetails.focus = true;
-      console.log(focusedItemDetails)
     }
-    // focusedItemDetails = objArray[focusedItemDetails.id +1]
+
     $("#picHolder").empty();
+    $("#textContainer p").empty();
     displayMainFocus();
     displayArray();
-    console.log(objArray)
   })
+
   $(".previous").on("click",function(){
+    slider += 30;
     $("img[src$='"+focusedItemDetails.url+"']").removeClass('focused');
-    if(objArray[focusedItemDetails.id].id - 1 >= 0){
+    $(".picArray img").css("left",slider+"%")
+    if(objArray[focusedItemDetails.id].id - 1 >= 1){
       focusedItemDetails.focus = false;
       focusedItemDetails = objArray[focusedItemDetails.id - 1]
       focusedItemDetails.focus = true;
@@ -96,10 +61,8 @@ function navigationControl(){
       focusedItemDetails.focus = true;
     }
     $("#picHolder").empty();
+    $("#textContainer p").empty();
     displayMainFocus();
     displayArray();
-    console.log(objArray)
   })
-
-
 }
