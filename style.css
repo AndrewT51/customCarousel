@@ -1,3 +1,4 @@
+
 #mainItem {
   height: 80vh;
   width: 50vw;
@@ -5,6 +6,7 @@
   display: inline-flex;
   margin: 0;
 }
+
 .next, .previous {
   height: 80vh;
   width: 10vw;
@@ -18,8 +20,9 @@ h2, p {
 }
 
 .picArray {
+  margin-top:-5px;
   display: flex;
-  background-color: lightblue;
+  background-color: black;
   width: 70vw;
   height: 20vh;
   overflow: hidden;
@@ -51,6 +54,7 @@ h2, p {
   /*border: lightblue 1px solid; */
   /*width:30% !important;*/
   z-index:10;
+
 }
 
 .highlightBlock {
@@ -58,7 +62,7 @@ h2, p {
   width: 30%;
   height: 24vh;
   z-index:2;
-  background-color: lightblue;
+  background-color: black;
   left: 6.5%;
   top: -22vh;
 

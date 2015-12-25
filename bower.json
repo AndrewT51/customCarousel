@@ -1,0 +1,22 @@
+{
+  "name": "carousel",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AndrewT51/customCarousel",
+  "authors": [
+    "Andrew Trigg <andrewt51@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
